@@ -462,6 +462,18 @@ public:
   bool operator!=(const Point& rhs) const {
     return (mX != rhs.mX) || (mY != rhs.mY);
   }
+  bool operator<(const Point& rhs) const noexcept {
+    return (mX < rhs.mX) || ((mX == rhs.mX) && (mY < rhs.mY));
+  }
+  bool operator>(const Point& rhs) const noexcept {
+    return (mX > rhs.mX) || ((mX == rhs.mX) && (mY > rhs.mY));
+  }
+  bool operator<=(const Point& rhs) const noexcept {
+    return (mX < rhs.mX) || ((mX == rhs.mX) && (mY <= rhs.mY));
+  }
+  bool operator>=(const Point& rhs) const noexcept {
+    return (mX > rhs.mX) || ((mX == rhs.mX) && (mY >= rhs.mY));
+  }
 
 private:
   Length mX;  ///< the X coordinate
